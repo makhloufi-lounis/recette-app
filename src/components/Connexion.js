@@ -1,5 +1,6 @@
 import React from 'react'
 import { Redirect } from 'react-router-dom'
+import WithPlaceholder from '../hoc/withPlaceholder'
 
 class Connexion extends React.Component {
   state = {
@@ -13,7 +14,7 @@ class Connexion extends React.Component {
   }
 
   handleChange = event => {
-    const pseudo = event.target.value
+    const pseudo = event.target.value.toLowerCase();
     this.setState({ pseudo })
   }
 
@@ -41,4 +42,5 @@ class Connexion extends React.Component {
   }
 }
 
-export default Connexion
+const WrappedComponent = WithPlaceholder(Connexion)
+export default WrappedComponent
